@@ -1,4 +1,4 @@
-Programa inspirado no programa da aula: "Python: crie a sua primeira aplicação" lecionado por Guilherme Lima e Laís Urano.
+Programa inspirado no programa no curso da Alura: "Python: crie a sua primeira aplicação" lecionado por Guilherme Lima e Laís Urano.
 
 Os temas estudados no curso são:
 
