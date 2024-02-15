@@ -32,3 +32,5 @@ musica2 = Musica(nome='Toxicity', artista='System of a Down', duracao=240)
 musica3 = Musica(nome='Guajira', artista='Yerba Buena', duracao=300)
 
 print(musica1.artista)
+
+# Ou seja, a classe Musica com __init__ é uma maneira mais elegante de criar a classe, pois já cria os atributos e os inicializa com os valores passados como parâmetros, sem a necessidade de criar os atributos e depois atribuir os valores.
