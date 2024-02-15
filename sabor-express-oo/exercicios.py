@@ -18,3 +18,5 @@ musica_2.artista = 'Legião Urbana'
 musica_2.duracao = 240
 
 print(musica_1.artista)
+
+# 
