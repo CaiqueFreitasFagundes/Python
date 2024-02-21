@@ -3,6 +3,7 @@ class Restaurante:#Classe sempre com a primeira letra maiúscula.
     def __init__(self, nome, categoria):#Método construtor, que é chamado quando um objeto é instanciado. O self é uma referência ao próprio objeto.
         self.nome = nome
         self.categoria = categoria
+     
         self.ativo = False
         Restaurante.restaurantes.append(self)
 
