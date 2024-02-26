@@ -77,3 +77,27 @@ class Carro:
 novo_carro = Carro('2022', 'Celta', 'Preto')
 
 print(vars(novo_carro))
+
+# class musica
+
+class Musica:
+    def __init__ (self, nome_da_musica, artista, album):
+        self.nome_da_musica = nome_da_musica
+        self.artista = artista
+        self.album = album
+
+nova_musica = Musica('Chop Suey', 'System of a Down', 'Toxicity')
+
+print(vars(nova_musica))
+
+#class Cadastro_pessoa
+
+class Cadastro_pessoa:
+    def __init__ (self, nome_da_pessoa, cpf, data_de_nascimento):
+        self.nome_da_pessoa = nome_da_pessoa
+        self.cpf = cpf
+        self.data_de_nascimento = data_de_nascimento
+
+novo_cadastro = Cadastro_pessoa('Caique', '000.000.000-0', '12/34/5678')
+
+print(vars(novo_cadastro))
