@@ -15,20 +15,26 @@ class Restaurante:#Classe sempre com a primeira letra maiúscula.
     def __str__(self):#Método para retornar uma string com as informações do objeto, quando o objeto é passado como parâmetro para a função print. 
         return f'Nome: {self._nome} | Categoria: {self._categoria}'
     
-    def listar_restaurantes():#Método estático para listar os restaurantes cadastrados. Não recebe o self como parâmetro, pois não é um método de instância.
+    @classmethod #O classmethod é um decorador que permite que o método seja chamado a partir da classe, sem a necessidade de criar um objeto. Ele é usado para criar métodos que operam na classe em si, e não em instâncias da classe.
+
+    def listar_restaurantes(cls):#Método estático para listar os restaurantes cadastrados. Não recebe o self como parâmetro, pois não é um método de instância.
 
         print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
-        for restaurante in Restaurante.restaurantes:
+        for restaurante in cls.restaurantes:
             print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
 
     @property #o property é um decorador que permite que o método seja chamado como um atributo, sem a necessidade de usar os parênteses. Ele oferece a possibilidade de criar um método que se comporta como um atributo.
 
-    def ativo(self):
+    def ativo(self):  #Método para verificar se o restaurante está ativo ou não.
         return '✔️' if self._ativo else '❌'
+    
+    def alternar_estado(self): #Método para alternar o estado do restaurante.
+        self._ativo = not self._ativo
 
 # Instanciando a classe Restaurante
-restaurante_praca = Restaurante('praça', 'Gourmet')
-restaurante_pizza = Restaurante('pizza Express', 'Italiana')
-restaurante_pizza._ativo = True
+restaurante_praca = Restaurante('praça', 'Gourmet') #Cria um objeto da classe Restaurante.
+restaurante_praca.alternar_estado() #Alterna o estado do restaurante.
+restaurante_pizza = Restaurante('pizza Express', 'Italiana') #Cria um objeto da classe Restaurante.
 
-Restaurante.listar_restaurantes()
+
+Restaurante.listar_restaurantes() #Chama o método listar_restaurantes da classe Restaurante.
