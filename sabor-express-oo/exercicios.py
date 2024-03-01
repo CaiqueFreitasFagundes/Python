@@ -102,3 +102,21 @@ novo_cadastro3 = Cadastro_pessoa('Maria', '222.222.222-2', '12/34/5678')
 print(vars(novo_cadastro))
 print(vars(novo_cadastro2))
 print(vars(novo_cadastro3))
+
+class Livro:
+    def __init__(self, titulo='', autor='', paginas=0):
+        self.titulo = titulo
+        self.autor = autor
+        self.paginas = paginas
+
+    def __str__(self):
+        return f'{self.titulo} por {self.autor} - {self.paginas} páginas'
+
+    @property
+    def titulo_autor(self):
+        return f'{self.titulo} por {self.autor}'
+
+    def aumentar_paginas(self, quantidade):
+        self.paginas += quantidade
+
+# Agora é sua vez! Crie uma nova classe chamada Pessoa com atributos como nome, idade e profissão. Adicione um método especial __str__ para imprimir uma representação em string da pessoa. Implemente também um método de instância chamado aniversario que aumenta a idade da pessoa em um ano. Por fim, adicione uma propriedade chamada saudacao que retorna uma mensagem de saudação personalizada com base na profissão da pessoa.
