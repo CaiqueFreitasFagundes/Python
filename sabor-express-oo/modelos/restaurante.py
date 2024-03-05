@@ -1,4 +1,7 @@
+from modelos.avaliacao import Avaliacao #Importamos a classe Avaliacao do módulo avaliacao.
+
 class Restaurante:#Classe sempre com a primeira letra maiúscula.
+
     restaurantes = []
     def __init__(self, nome, categoria):#O Init é um método especial que é chamado quando um objeto é criado a partir de uma classe. Ele é o construtor da classe. 
         
@@ -10,6 +13,8 @@ class Restaurante:#Classe sempre com a primeira letra maiúscula.
 
         self._ativo = False 
 
+        self._avaliacao = [] #Lista para armazenar as avaliações do restaurante.
+
         Restaurante.restaurantes.append(self) #Adiciona o objeto à lista de restaurantes.
 
     def __str__(self):#Método para retornar uma string com as informações do objeto, quando o objeto é passado como parâmetro para a função print. 
@@ -19,9 +24,9 @@ class Restaurante:#Classe sempre com a primeira letra maiúscula.
 
     def listar_restaurantes(cls):#Método estático para listar os restaurantes cadastrados. Não recebe o self como parâmetro, pois não é um método de instância.
 
-        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}')
+        print(f'{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} |{'Status'}')
         for restaurante in cls.restaurantes:
-            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}')
+            print(f'{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} |{str(restaurante.media_avaliacoes).ljust(25)} | {restaurante.ativo}')
 
     @property #o property é um decorador que permite que o método seja chamado como um atributo, sem a necessidade de usar os parênteses. Ele oferece a possibilidade de criar um método que se comporta como um atributo.
 
@@ -30,3 +35,17 @@ class Restaurante:#Classe sempre com a primeira letra maiúscula.
     
     def alternar_estado(self): #Método para alternar o estado do restaurante. Método para alterar o objeto.
         self._ativo = not self._ativo
+
+    def receber_avaliacao(self, cliente, nota): #Método para receber a avaliação do cliente.
+        avaliacao = Avaliacao(cliente, nota) 
+        self._avaliacao.append(avaliacao)
+
+    @property
+    def media_avaliacoes(self):
+        if not self._avaliacao:
+            return 0
+        soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
+        quantidade_de_notas = len(self._avaliacao)
+        media = round(soma_das_notas / quantidade_de_notas, 1)
+        return media
+    
